@@ -4,7 +4,7 @@
 const {Schema, model, Types} = require('mongoose')
 
 // создаем схему через конструктор
-const shema = new Schema({
+const schema = new Schema({
     email:{type: String, required: true, unique: true},
     password:{type:String, required:true},
     links:[{type: Types.ObjectId, ref: 'Link'}]
