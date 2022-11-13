@@ -22,7 +22,7 @@ async function start(){
         await mongoose.connect(config.get('mongoUri'))
         app.listen(5000, ()=> console.log(`App has been started on port ${PORT}...`))
     }catch(e){
-        console.log('Что то не так ', e.message)
+        console.log('Что то не так', e.message)
         process.exit(1)
     }
 }

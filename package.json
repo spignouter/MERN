@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,8 +16,14 @@
   "author": "I",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^7.5.0",
     "config": "^3.3.8",
     "express": "^4.18.2",
-    "mongoose": "^6.6.5"
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.5",
+    "nodemon": "^2.0.20"
   }
 }
