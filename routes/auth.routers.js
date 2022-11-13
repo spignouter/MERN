@@ -22,16 +22,16 @@ const config = require('config')
 // добовляем несколько запросов
 // имееться префикс /api/auth все что написано далее будет конкотенироваться с этим путем
 // подключение массива валидаторов, проверки правильности введеных данных
-router.post('/registr', 
+router.post('/register', 
     [
         check('email','некоректный email').isEmail(),
         check('password', 'Минимальная длина паролья 6 символов')
-        .isLength(6)
+        .isLength({min:6})
     ],
     async (req, res)=>{
     try{
         // експресс валидатор проверяет 
-        const errors = validatorResult(req)
+        const errors = validationResult(req)
 
         // если еррорс не пустой, а это значит что еррос заполнен ошибками функция остонавливаеться и отправляет ответ клиенту
         if (!errors.isEmpty()){

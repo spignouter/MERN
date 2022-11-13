@@ -17,8 +17,8 @@ export const useRoutes = isAuthenticated =>{
                 <Route path="/links" element={<LinksPage />} />
                 <Route path="/create" element={<CretePage/>}/>
                 <Route path="/detail/:id" element={<DetailPage/>}/>
-                {/*Redirect был переименован в Navigate,  */}
-                <Navigate to="/create" />
+                {/*Redirect был переименован в Navigate, Switch устарел и больше не исользуеться, Redirect был в составе Switch */}
+                <Route path="*" element={<Navigate to="/create" replace={true}/>}/>
             </Routes>
         )
     }
@@ -26,6 +26,8 @@ export const useRoutes = isAuthenticated =>{
         <Routes>
             {/* Судя по всему компонетны должны передоваться как пропсы в элементы ReactDom */}
             <Route path="/" element={<AuthPage/>} />
+            {/* Звездочка * значит любая строка в адресе */}
+            <Route path="*" element={<Navigate to="/" replace={true}/>}/>
         </Routes>
     )
 }
